@@ -8,6 +8,7 @@
 #include <fcntl.h>
 #include <signal.h>
 #include <time.h>
+#include <string.h>
 
 #define FIFOPATH "commands.txt"
 #define LOGSPATH "toadd-daemon.log"
@@ -69,15 +70,15 @@ void clean_fifo(){
 	}
 }
 
-void create_and_open_fifo(){
+void create_and_open_fifo(int *fd_ptr){
 	clean_fifo();
 	if(mkfifo(FIFOPATH, 0666) == -1){
 		write_log("Error al crear FIFO");
 		exit(EXIT_FAILURE);
 	}
 	write_log("Creado FIFO correctamente... Esperando Toadd-CLI");
-	int fd = open(FIFOPATH, O_RDONLY);
-	if(fd == -1){
+	*fd_ptr = open(FIFOPATH, O_RDONLY);
+	if(*fd_ptr == -1){
 		write_log("Error al abrir FIFO para lectura");
 		clean_fifo();
 		exit(EXIT_FAILURE);
@@ -85,11 +86,37 @@ void create_and_open_fifo(){
 	write_log("FIFO abierto para lectura correctamente");
 }
 
-int main(){
-	init_daemon();
-	create_and_open_fifo();
-	clean_fifo();
+int read_buffer(int fd, char *dest, int max_len){
+	memset(dest, 0, max_len);
+	ssize_t n = read(fd, dest, max_len -1);
+	if(n>0){
+		dest[n] = '\0';
+		return (int)n;
+	}
+	return (int)n;
+}
 
+int main(){
+	int fd;
+	char command[1024];
+	init_daemon();
+	create_and_open_fifo(&fd);
+	while(1){
+		int res = read_buffer(fd, command, sizeof(command));
+		if(res>0){
+			write_log("commando recibido:");
+			write_log(command);
+
+			if(strcmp(command, "EXIT") == 0) break;
+		}
+		else if(res==0){
+			write_log("proceso escritor se cerró");
+			close(fd); 
+    			fd = open(FIFOPATH, O_RDONLY);
+		}
+	}
+	close(fd);
+	clean_fifo();
 	return EXIT_SUCCESS;
 }
 
