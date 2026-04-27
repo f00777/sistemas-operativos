@@ -9,12 +9,34 @@
 #include <signal.h>
 #include <time.h>
 #include <string.h>
+#include <sys/wait.h>
 
 #define FIFOPATH "commands.txt"
+#define RESPATH "res.txt"
 #define LOGSPATH "toadd-daemon.log"
+#define MAX_PROCESSES 100
+
+typedef enum{
+	RUNNING,
+	STOPPED,
+	ZOMBIE
+} process_state_t;
+
+typedef struct{
+	int iid;
+	pid_t pid;
+	process_state_t state;
+	time_t start_time;
+	char binary_path[256];
+	int is_active;
+} child_process_t;
+
+child_process_t process_table[MAX_PROCESSES];
+int next_iid = 2;
 
 
-void write_log(char* info){
+
+void write_log(const char* info){
 	FILE* file = fopen(LOGSPATH, "a");
 	if(file == NULL){
 		exit(EXIT_FAILURE);
@@ -27,6 +49,67 @@ void write_log(char* info){
 	strftime(timestamp, sizeof(timestamp), "[%Y-%m-%d %H:%M:%S]", info_tiempo);
 	fprintf(file, "%s [%d] %s\n", timestamp, pid, info);
 	fclose(file);
+}
+
+
+void add_process_to_table(pid_t pid, const char* path) {
+    int encontrado = 0;
+    char log_buffer[512]; // Buffer para construir los mensajes de log
+
+    for (int i = 0; i < MAX_PROCESSES; i++) {
+        if (process_table[i].is_active == 0) {
+            
+            // Asignación de datos
+            process_table[i].iid = next_iid++;
+            process_table[i].pid = pid;
+            process_table[i].state = RUNNING;
+            process_table[i].start_time = time(NULL);
+            
+            strncpy(process_table[i].binary_path, path, sizeof(process_table[i].binary_path) - 1);
+            process_table[i].binary_path[sizeof(process_table[i].binary_path) - 1] = '\0';
+            
+            process_table[i].is_active = 1; 
+
+            // 1. Preparamos el mensaje de éxito con snprintf
+            snprintf(log_buffer, sizeof(log_buffer), 
+                     "Proceso añadido exitosamente: IID %d, PID %d, Path %s", 
+                     process_table[i].iid, (int)pid, path);
+            
+            // 2. Lo enviamos al archivo de log
+            write_log(log_buffer);
+
+            encontrado = 1;
+            break; 
+        }
+    }
+
+    if (!encontrado) {
+        // Para mensajes constantes no hace falta snprintf, se mandan directo
+        write_log("[ERROR] No se pudo añadir proceso: La tabla de procesos está llena.");
+    }
+}
+
+
+void handle_sigchld(int sig) {
+    // Handler vacío, usado solo para interrumpir (EINTR) llamadas bloqueantes
+}
+
+void check_zombies() {
+    pid_t pid;
+    int status;
+    while ((pid = waitpid(-1, &status, WNOHANG)) > 0) {
+        for (int i = 0; i < MAX_PROCESSES; i++) {
+            if (process_table[i].is_active && process_table[i].pid == pid) {
+                if (process_table[i].state != ZOMBIE) {
+                    process_table[i].state = ZOMBIE;
+                    char log_buffer[256];
+                    snprintf(log_buffer, sizeof(log_buffer), "[AVISO] Proceso IID %d (PID %d) terminó. Estado actualizado a ZOMBIE.", process_table[i].iid, (int)pid);
+                    write_log(log_buffer);
+                }
+                break;
+            }
+        }
+    }
 }
 
 //la logica de creacion de un daemon es: (1)crear proceso hijo ; (2)matar proceso padre; crear sesión (asi eliminamos tty del daemon) ; repetir (1) y (2)
@@ -57,7 +140,11 @@ static void init_daemon(){
 	write_log("demonio iniciado correctamente");
 }
 
-
+void init_process_table(){
+	for(int i=0; i<MAX_PROCESSES; i++){
+		process_table[i].is_active = 0;
+	}
+}
 
 
 void clean_fifo(){
@@ -77,7 +164,10 @@ void create_and_open_fifo(int *fd_ptr){
 		exit(EXIT_FAILURE);
 	}
 	write_log("Creado FIFO correctamente... Esperando Toadd-CLI");
-	*fd_ptr = open(FIFOPATH, O_RDONLY);
+	do {
+	    *fd_ptr = open(FIFOPATH, O_RDONLY);
+	} while (*fd_ptr == -1 && errno == EINTR);
+
 	if(*fd_ptr == -1){
 		write_log("Error al abrir FIFO para lectura");
 		clean_fifo();
@@ -96,25 +186,182 @@ int read_buffer(int fd, char *dest, int max_len){
 	return (int)n;
 }
 
+
+void start(const char* binary_path) {
+    char log_buffer[512];
+
+    pid_t pid = fork();
+
+    if (pid < 0) {
+        snprintf(log_buffer, sizeof(log_buffer), "[ERROR] Fallo al ejecutar fork() para el binario: %s", binary_path);
+        write_log(log_buffer);
+        return;
+    } 
+    else if (pid == 0) {
+        execlp(binary_path, binary_path, NULL);
+        _exit(EXIT_FAILURE); 
+    } 
+    else {
+        snprintf(log_buffer, sizeof(log_buffer), "Iniciando binario '%s' en el nuevo PID: %d", binary_path, pid);
+        write_log(log_buffer);
+        add_process_to_table(pid, binary_path);
+    }
+}
+
+void stop(int iid) {
+    char log_buffer[512];
+    int encontrado = 0;
+
+    for (int i = 0; i < MAX_PROCESSES; i++) {
+        if (process_table[i].is_active && process_table[i].iid == iid) {
+            encontrado = 1;
+            if (kill(process_table[i].pid, SIGTERM) == 0) {
+                process_table[i].state = STOPPED;
+                snprintf(log_buffer, sizeof(log_buffer), 
+                         "Señal SIGTERM enviada con éxito. Proceso detenido: IID %d, PID %d", 
+                         iid, (int)process_table[i].pid);
+                write_log(log_buffer);
+            } else {
+                snprintf(log_buffer, sizeof(log_buffer), 
+                         "[ERROR] No se pudo enviar SIGTERM al IID %d (PID %d): %s", 
+                         iid, (int)process_table[i].pid, strerror(errno));
+                write_log(log_buffer);
+            }
+            break; 
+        }
+    }
+    if (!encontrado) {
+        snprintf(log_buffer, sizeof(log_buffer), 
+                 "[ERROR] No se encontró ningún proceso activo con IID %d.", iid);
+        write_log(log_buffer);
+    }
+}
+
+void show_processes() {
+    int fd;
+    do {
+        fd = open(RESPATH, O_WRONLY);
+    } while (fd == -1 && errno == EINTR);
+
+    if (fd == -1) {
+        write_log("[ERROR] No se pudo abrir res.txt para escritura.");
+        return;
+    }
+    
+    char buffer[2048];
+    snprintf(buffer, sizeof(buffer), "%-5s %-8s %-10s %-8s %s\n", "IID", "PID", "STATE", "UPTIME", "BINARY");
+    if (write(fd, buffer, strlen(buffer)) == -1) {
+        write_log("[ERROR] Fallo al escribir encabezado de ps.");
+        close(fd);
+        return;
+    }
+
+    time_t now = time(NULL);
+    for (int i = 0; i < MAX_PROCESSES; i++) {
+        if (process_table[i].is_active) {
+            char state_str[16];
+            switch(process_table[i].state) {
+                case RUNNING: strcpy(state_str, "RUNNING"); break;
+                case STOPPED: strcpy(state_str, "STOPPED"); break;
+                case ZOMBIE:  strcpy(state_str, "ZOMBIE"); break;
+                default:      strcpy(state_str, "UNKNOWN"); break;
+            }
+            int diff_seconds = (int)difftime(now, process_table[i].start_time);
+            int h = diff_seconds / 3600;
+            int m = (diff_seconds % 3600) / 60;
+            int s = diff_seconds % 60;
+            
+            snprintf(buffer, sizeof(buffer), "%-5d %-8d %-10s %02d:%02d:%02d %s\n",
+                     process_table[i].iid,
+                     (int)process_table[i].pid,
+                     state_str,
+                     h, m, s,
+                     process_table[i].binary_path);
+            if (write(fd, buffer, strlen(buffer)) == -1) {
+                write_log("[ERROR] Fallo al escribir fila de ps.");
+                break;
+            }
+        }
+    }
+    close(fd);
+    write_log("Información de procesos enviada a res.txt");
+}
+
 int main(){
+	signal(SIGPIPE, SIG_IGN);
+	
+	struct sigaction sa;
+	sa.sa_handler = handle_sigchld;
+	sigemptyset(&sa.sa_mask);
+	sa.sa_flags = 0; // Sin SA_RESTART para lograr interrumpir el read
+	sigaction(SIGCHLD, &sa, NULL);
+
 	int fd;
-	char command[1024];
+	char command[1100];
 	init_daemon();
 	create_and_open_fifo(&fd);
 	while(1){
-		int res = read_buffer(fd, command, sizeof(command));
-		if(res>0){
-			write_log("commando recibido:");
-			write_log(command);
+        int res = read_buffer(fd, command, sizeof(command));
+        
+        if(res < 0){
+            if (errno == EINTR) {
+                check_zombies();
+            }
+            continue;
+        }
 
-			if(strcmp(command, "EXIT") == 0) break;
-		}
-		else if(res==0){
-			write_log("proceso escritor se cerró");
-			close(fd); 
-    			fd = open(FIFOPATH, O_RDONLY);
-		}
-	}
+        check_zombies();
+
+        if(res > 0){
+            command[strcspn(command, "\r\n")] = 0;
+            char log_msg[1200];
+            snprintf(log_msg, sizeof(log_msg), "Comando recibido: '%s'", command);
+            write_log(log_msg);
+            char action[32] = {0};
+            char arg[256] = {0};
+            int num_args = sscanf(command, "%31s %255s", action, arg);
+
+            if (num_args >= 1) {
+                if (strcmp(action, "EXIT") == 0) {
+                    write_log("Recibido comando EXIT. Saliendo del bucle...");
+                    break;
+                } 
+                else if (strcmp(action, "start") == 0) {
+                    if (num_args == 2) {
+                        start(arg);
+                    } else {
+                        write_log("[ERROR] Uso incorrecto. Sintaxis: start <ruta_a_binario>");
+                    }
+                } 
+                else if (strcmp(action, "stop") == 0) {
+                    if (num_args == 2) {
+                        int iid = atoi(arg); 
+                        stop(iid);
+                    } else {
+                        write_log("[ERROR] Uso incorrecto. Sintaxis: stop <iid>");
+                    }
+                } 
+                else if (strcmp(action, "ps") == 0) {
+                    show_processes();
+                }
+                else {
+                    write_log("[AVISO] Comando desconocido ignorado.");
+                }
+            }
+        }
+        else if(res == 0){
+            write_log("Proceso escritor se cerró. Reabriendo pipe en modo lectura...");
+            close(fd); 
+            do {
+                fd = open(FIFOPATH, O_RDONLY);
+            } while (fd == -1 && errno == EINTR);
+            
+            if (fd == -1) {
+                write_log("[ERROR FATAL] No se pudo reabrir el FIFO.");
+                break;
+            }
+        }
+    }
 	close(fd);
 	clean_fifo();
 	return EXIT_SUCCESS;
