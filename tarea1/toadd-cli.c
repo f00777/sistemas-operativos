@@ -1,3 +1,4 @@
+#define _POSIX_C_SOURCE 200809L
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -16,7 +17,6 @@ void clean_fifo_res() {
 }
 
 int main(int argc, char *argv[]) {
-    // Verificamos que se haya pasado al menos un argumento
     if (argc < 2) {
         fprintf(stderr, "Uso: %s <comando> [argumentos...]\n", argv[0]);
         fprintf(stderr, "Ejemplos:\n");
@@ -29,7 +29,6 @@ int main(int argc, char *argv[]) {
     char command[MAX_COMMAND_LEN] = {0};
     int current_len = 0;
 
-    // Concatenamos todos los argumentos en un solo string, separados por espacio
     for (int i = 1; i < argc; i++) {
         int len = strlen(argv[i]);
         if (current_len + len + 1 >= MAX_COMMAND_LEN) {
@@ -44,9 +43,11 @@ int main(int argc, char *argv[]) {
         current_len += len;
     }
 
-    int is_ps = (strcmp(command, "ps") == 0);
+    int necesita_respuesta = (strcmp(command, "ps") == 0) ||
+                             (strncmp(command, "status", 6) == 0) ||
+                             (strcmp(command, "zombie") == 0);
 
-    if (is_ps) {
+    if (necesita_respuesta) {
         clean_fifo_res();
         if (mkfifo(RESPATH, 0666) == -1) {
             perror("Error al crear FIFO res.txt");
@@ -54,25 +55,23 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    // Abrimos el FIFO en modo escritura
     int fd = open(FIFOPATH, O_WRONLY);
     if (fd == -1) {
-        perror("Error al abrir commands.txt (¿Está corriendo el demonio?)");
-        if (is_ps) clean_fifo_res();
+        perror("Error al abrir commands.txt (el demonio no esta corriendo)");
+        if (necesita_respuesta) clean_fifo_res();
         return EXIT_FAILURE;
     }
 
-    // Escribimos el string completo en el FIFO
     if (write(fd, command, strlen(command)) == -1) {
-        perror("Error al enviar el comando al daemon");
+        perror("Error al enviar el comando al demonio");
         close(fd);
-        if (is_ps) clean_fifo_res();
+        if (necesita_respuesta) clean_fifo_res();
         return EXIT_FAILURE;
     }
 
     close(fd);
 
-    if (is_ps) {
+    if (necesita_respuesta) {
         int res_fd = open(RESPATH, O_RDONLY);
         if (res_fd == -1) {
             perror("Error al abrir res.txt");

@@ -1,51 +1,376 @@
-[2026-04-27 18:13:22] [8532] demonio iniciado correctamente
-[2026-04-27 18:13:22] [8532] Creado FIFO correctamente... Esperando Toadd-CLI
-[2026-04-27 18:13:46] [8532] FIFO abierto para lectura correctamente
-[2026-04-27 18:13:46] [8532] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
-[2026-04-27 18:13:51] [8532] Comando recibido: 'start ./hw'
-[2026-04-27 18:13:51] [8532] Iniciando binario './hw' en el nuevo PID: 8601
-[2026-04-27 18:13:51] [8532] Proceso añadido exitosamente: IID 2, PID 8601, Path ./hw
-[2026-04-27 18:13:51] [8532] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
-[2026-04-27 18:14:08] [8532] [AVISO] Proceso IID 2 (PID 8601) terminó. Estado actualizado a ZOMBIE.
-[2026-04-27 18:14:08] [8532] Comando recibido: 'ps'
-[2026-04-27 18:14:08] [8532] Información de procesos enviada a res.txt
-[2026-04-27 18:14:08] [8532] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
-[2026-04-27 18:14:16] [8532] Comando recibido: 'ps'
-[2026-04-27 18:14:16] [8532] Información de procesos enviada a res.txt
-[2026-04-27 18:14:16] [8532] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
-[2026-04-27 18:14:17] [8532] Comando recibido: 'ps'
-[2026-04-27 18:14:17] [8532] Información de procesos enviada a res.txt
-[2026-04-27 18:14:17] [8532] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
-[2026-04-27 18:14:18] [8532] Comando recibido: 'ps'
-[2026-04-27 18:14:18] [8532] Información de procesos enviada a res.txt
-[2026-04-27 18:14:18] [8532] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
-[2026-04-27 18:14:19] [8532] Comando recibido: 'ps'
-[2026-04-27 18:14:19] [8532] Información de procesos enviada a res.txt
-[2026-04-27 18:14:19] [8532] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
-[2026-04-27 18:14:19] [8532] Comando recibido: 'ps'
-[2026-04-27 18:14:19] [8532] Información de procesos enviada a res.txt
-[2026-04-27 18:14:19] [8532] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
-[2026-04-27 18:14:20] [8532] Comando recibido: 'ps'
-[2026-04-27 18:14:20] [8532] Información de procesos enviada a res.txt
-[2026-04-27 18:14:20] [8532] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
-[2026-04-27 18:14:21] [8532] Comando recibido: 'ps'
-[2026-04-27 18:14:21] [8532] Información de procesos enviada a res.txt
-[2026-04-27 18:14:21] [8532] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
-[2026-04-27 18:14:28] [8532] Comando recibido: 'stop 2'
-[2026-04-27 18:14:28] [8532] [ERROR] No se pudo enviar SIGTERM al IID 2 (PID 8601): No such process
-[2026-04-27 18:14:28] [8532] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
-[2026-04-27 18:14:32] [8532] Comando recibido: 'ps'
-[2026-04-27 18:14:32] [8532] Información de procesos enviada a res.txt
-[2026-04-27 18:14:32] [8532] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
-[2026-04-27 18:14:34] [8532] Comando recibido: 'ps'
-[2026-04-27 18:14:34] [8532] Información de procesos enviada a res.txt
-[2026-04-27 18:14:34] [8532] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
-[2026-04-27 18:14:35] [8532] Comando recibido: 'ps'
-[2026-04-27 18:14:35] [8532] Información de procesos enviada a res.txt
-[2026-04-27 18:14:35] [8532] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
-[2026-04-27 18:14:56] [8532] Comando recibido: 'ps'
-[2026-04-27 18:14:56] [8532] Información de procesos enviada a res.txt
-[2026-04-27 18:14:56] [8532] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
-[2026-04-27 18:15:07] [8532] Comando recibido: 'EXIT'
-[2026-04-27 18:15:07] [8532] Recibido comando EXIT. Saliendo del bucle...
-[2026-04-27 18:15:07] [8532] Eliminando commands.txt
+[2026-04-27 20:14:29] [32717] Creado FIFO correctamente... Esperando Toadd-CLI
+[2026-04-27 20:18:12] [3911] Creado FIFO correctamente... Esperando Toadd-CLI
+[2026-04-27 20:19:37] [4730] demonio iniciado correctamente
+[2026-04-27 20:19:37] [4730] Eliminando commands.txt
+[2026-04-27 20:19:37] [4730] Creado FIFO correctamente... Esperando Toadd-CLI
+[2026-04-27 20:20:21] [4917] demonio iniciado correctamente
+[2026-04-27 20:20:21] [4917] Creado FIFO correctamente... Esperando Toadd-CLI
+[2026-04-27 20:21:02] [4917] FIFO abierto para lectura correctamente
+[2026-04-27 20:21:02] [4917] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 2
+[2026-04-27 20:21:02] [4917] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:21:14] [4917] [DEBUG] read_buffer called on fd 3. Read 2 bytes. Errno: 10
+[2026-04-27 20:21:14] [4917] [DEBUG] read content: 'ps'
+[2026-04-27 20:21:14] [4917] Comando recibido: 'ps'
+[2026-04-27 20:21:14] [4917] Información de procesos enviada a res.txt
+[2026-04-27 20:21:14] [4917] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:21:14] [4917] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:21:37] [4917] [DEBUG] read_buffer called on fd 3. Read 10 bytes. Errno: 10
+[2026-04-27 20:21:37] [4917] [DEBUG] read content: 'start ./hw'
+[2026-04-27 20:21:37] [4917] Comando recibido: 'start ./hw'
+[2026-04-27 20:21:37] [4917] Iniciando binario './hw' en el nuevo PID: 5235
+[2026-04-27 20:21:37] [4917] Proceso añadido exitosamente: IID 2, PID 5235, Path ./hw
+[2026-04-27 20:21:37] [4917] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:21:37] [4917] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:21:45] [4917] [DEBUG] read_buffer called on fd 3. Read 2 bytes. Errno: 4
+[2026-04-27 20:21:45] [4917] [DEBUG] read content: 'ps'
+[2026-04-27 20:21:45] [4917] [AVISO] Proceso IID 2 (PID 5235) terminó. Estado actualizado a ZOMBIE.
+[2026-04-27 20:21:45] [4917] Comando recibido: 'ps'
+[2026-04-27 20:21:45] [4917] Información de procesos enviada a res.txt
+[2026-04-27 20:21:45] [4917] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:21:45] [4917] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:21:51] [4917] [DEBUG] read_buffer called on fd 3. Read 10 bytes. Errno: 10
+[2026-04-27 20:21:51] [4917] [DEBUG] read content: 'start ./hw'
+[2026-04-27 20:21:51] [4917] Comando recibido: 'start ./hw'
+[2026-04-27 20:21:51] [4917] Iniciando binario './hw' en el nuevo PID: 5289
+[2026-04-27 20:21:51] [4917] Proceso añadido exitosamente: IID 3, PID 5289, Path ./hw
+[2026-04-27 20:21:51] [4917] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:21:51] [4917] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:21:52] [4917] [DEBUG] read_buffer called on fd 3. Read 2 bytes. Errno: 4
+[2026-04-27 20:21:52] [4917] [DEBUG] read content: 'ps'
+[2026-04-27 20:21:52] [4917] [AVISO] Proceso IID 3 (PID 5289) terminó. Estado actualizado a ZOMBIE.
+[2026-04-27 20:21:52] [4917] Comando recibido: 'ps'
+[2026-04-27 20:21:52] [4917] Información de procesos enviada a res.txt
+[2026-04-27 20:21:52] [4917] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:21:52] [4917] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:24:00] [4917] [DEBUG] read_buffer called on fd 3. Read 4 bytes. Errno: 10
+[2026-04-27 20:24:00] [4917] [DEBUG] read content: 'EXIT'
+[2026-04-27 20:24:00] [4917] Comando recibido: 'EXIT'
+[2026-04-27 20:24:00] [4917] Recibido comando EXIT. Saliendo del bucle...
+[2026-04-27 20:24:00] [4917] Eliminando commands.txt
+[2026-04-27 20:27:29] [5777] demonio iniciado correctamente
+[2026-04-27 20:27:29] [5777] Creado FIFO correctamente... Esperando Toadd-CLI
+[2026-04-27 20:27:37] [5777] FIFO abierto para lectura correctamente
+[2026-04-27 20:27:37] [5777] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 2
+[2026-04-27 20:27:37] [5777] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:27:49] [5777] [DEBUG] read_buffer called on fd 3. Read 2 bytes. Errno: 10
+[2026-04-27 20:27:49] [5777] [DEBUG] read content: 'ps'
+[2026-04-27 20:27:49] [5777] Comando recibido: 'ps'
+[2026-04-27 20:27:49] [5777] Información de procesos enviada a res.txt
+[2026-04-27 20:27:49] [5777] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:27:49] [5777] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:28:40] [5777] [DEBUG] read_buffer called on fd 3. Read 63 bytes. Errno: 10
+[2026-04-27 20:28:40] [5777] [DEBUG] read content: 'start /home/f00777/Documents/temp/sistemas-operativos/tarea1/hw'
+[2026-04-27 20:28:40] [5777] Comando recibido: 'start /home/f00777/Documents/temp/sistemas-operativos/tarea1/hw'
+[2026-04-27 20:28:40] [5777] Iniciando binario '/home/f00777/Documents/temp/sistemas-operativos/tarea1/hw' en el nuevo PID: 5993
+[2026-04-27 20:28:40] [5777] Proceso añadido exitosamente: IID 2, PID 5993, Path /home/f00777/Documents/temp/sistemas-operativos/tarea1/hw
+[2026-04-27 20:28:40] [5777] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:28:40] [5777] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:28:43] [5777] [DEBUG] read_buffer called on fd 3. Read 2 bytes. Errno: 4
+[2026-04-27 20:28:43] [5777] [DEBUG] read content: 'ps'
+[2026-04-27 20:28:43] [5777] [AVISO] Proceso IID 2 (PID 5993) terminó. Estado actualizado a ZOMBIE.
+[2026-04-27 20:28:43] [5777] Comando recibido: 'ps'
+[2026-04-27 20:28:43] [5777] Información de procesos enviada a res.txt
+[2026-04-27 20:28:43] [5777] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:28:43] [5777] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:28:48] [5777] [DEBUG] read_buffer called on fd 3. Read 8 bytes. Errno: 10
+[2026-04-27 20:28:48] [5777] [DEBUG] read content: 'status 2'
+[2026-04-27 20:28:48] [5777] Comando recibido: 'status 2'
+[2026-04-27 20:28:48] [5777] Información de status enviada a res.txt
+[2026-04-27 20:28:48] [5777] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:28:48] [5777] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:28:52] [5777] [DEBUG] read_buffer called on fd 3. Read 8 bytes. Errno: 10
+[2026-04-27 20:28:52] [5777] [DEBUG] read content: 'status 1'
+[2026-04-27 20:28:52] [5777] Comando recibido: 'status 1'
+[2026-04-27 20:28:52] [5777] Información de status enviada a res.txt
+[2026-04-27 20:28:52] [5777] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:28:52] [5777] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:28:54] [5777] [DEBUG] read_buffer called on fd 3. Read 8 bytes. Errno: 10
+[2026-04-27 20:28:54] [5777] [DEBUG] read content: 'status 3'
+[2026-04-27 20:28:54] [5777] Comando recibido: 'status 3'
+[2026-04-27 20:28:54] [5777] Información de status enviada a res.txt
+[2026-04-27 20:28:54] [5777] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:28:54] [5777] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:29:20] [5777] [DEBUG] read_buffer called on fd 3. Read 4 bytes. Errno: 10
+[2026-04-27 20:29:20] [5777] [DEBUG] read content: 'EXIT'
+[2026-04-27 20:29:20] [5777] Comando recibido: 'EXIT'
+[2026-04-27 20:29:20] [5777] Recibido comando EXIT. Saliendo del bucle...
+[2026-04-27 20:29:20] [5777] Eliminando commands.txt
+[2026-04-27 20:33:39] [6612] demonio iniciado correctamente
+[2026-04-27 20:33:39] [6612] Creado FIFO correctamente... Esperando Toadd-CLI
+[2026-04-27 20:33:46] [6612] FIFO abierto para lectura correctamente
+[2026-04-27 20:33:46] [6612] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 2
+[2026-04-27 20:33:46] [6612] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:35:05] [6612] [DEBUG] read_buffer called on fd 3. Read 6 bytes. Errno: 10
+[2026-04-27 20:35:05] [6612] [DEBUG] read content: 'hello
+'
+[2026-04-27 20:35:05] [6612] Comando recibido: 'hello'
+[2026-04-27 20:35:05] [6612] [AVISO] Comando desconocido ignorado.
+[2026-04-27 20:35:05] [6612] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:35:05] [6612] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:45:11] [6612] [DEBUG] read_buffer called on fd 3. Read 4 bytes. Errno: 10
+[2026-04-27 20:45:11] [6612] [DEBUG] read content: 'EXIT'
+[2026-04-27 20:45:11] [6612] Comando recibido: 'EXIT'
+[2026-04-27 20:45:11] [6612] Recibido comando EXIT. Saliendo del bucle...
+[2026-04-27 20:45:11] [6612] Eliminando commands.txt
+[2026-04-27 20:45:55] [9921] demonio iniciado correctamente
+[2026-04-27 20:45:56] [9921] Creado FIFO correctamente... Esperando Toadd-CLI
+[2026-04-27 20:46:19] [9921] FIFO abierto para lectura correctamente
+[2026-04-27 20:46:19] [9921] [DEBUG] read_buffer called on fd 3. Read 56 bytes. Errno: 2
+[2026-04-27 20:46:19] [9921] [DEBUG] read content: 'start /home/Documents/temp/sistemas-operativos/tarea1/hw'
+[2026-04-27 20:46:19] [9921] Comando recibido: 'start /home/Documents/temp/sistemas-operativos/tarea1/hw'
+[2026-04-27 20:46:19] [9921] Iniciando binario '/home/Documents/temp/sistemas-operativos/tarea1/hw' en el nuevo PID: 9983
+[2026-04-27 20:46:19] [9921] Proceso añadido exitosamente: IID 2, PID 9983, Path /home/Documents/temp/sistemas-operativos/tarea1/hw
+[2026-04-27 20:46:19] [9921] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:46:19] [9921] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:46:27] [9921] [DEBUG] read_buffer called on fd 3. Read 2 bytes. Errno: 4
+[2026-04-27 20:46:27] [9921] [DEBUG] read content: 'ps'
+[2026-04-27 20:46:27] [9921] [AVISO] Proceso IID 2 (PID 9983) terminó. Estado actualizado a ZOMBIE.
+[2026-04-27 20:46:27] [9921] Comando recibido: 'ps'
+[2026-04-27 20:46:27] [9921] Información de procesos enviada a res.txt
+[2026-04-27 20:46:27] [9921] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:46:27] [9921] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:46:37] [9921] [DEBUG] read_buffer called on fd 3. Read 6 bytes. Errno: 10
+[2026-04-27 20:46:37] [9921] [DEBUG] read content: 'zombie'
+[2026-04-27 20:46:37] [9921] Comando recibido: 'zombie'
+[2026-04-27 20:46:37] [9921] Información de procesos zombie enviada a res.txt
+[2026-04-27 20:46:37] [9921] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:46:37] [9921] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:46:48] [9921] [DEBUG] read_buffer called on fd 3. Read 63 bytes. Errno: 10
+[2026-04-27 20:46:48] [9921] [DEBUG] read content: 'start /home/Documents/temp/sistemas-operativos/tarea1/inftyloop'
+[2026-04-27 20:46:48] [9921] Comando recibido: 'start /home/Documents/temp/sistemas-operativos/tarea1/inftyloop'
+[2026-04-27 20:46:48] [9921] Iniciando binario '/home/Documents/temp/sistemas-operativos/tarea1/inftyloop' en el nuevo PID: 10096
+[2026-04-27 20:46:48] [9921] Proceso añadido exitosamente: IID 3, PID 10096, Path /home/Documents/temp/sistemas-operativos/tarea1/inftyloop
+[2026-04-27 20:46:48] [9921] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:46:48] [9921] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:46:51] [9921] [DEBUG] read_buffer called on fd 3. Read 2 bytes. Errno: 4
+[2026-04-27 20:46:51] [9921] [DEBUG] read content: 'ps'
+[2026-04-27 20:46:51] [9921] [AVISO] Proceso IID 3 (PID 10096) terminó. Estado actualizado a ZOMBIE.
+[2026-04-27 20:46:51] [9921] Comando recibido: 'ps'
+[2026-04-27 20:46:51] [9921] Información de procesos enviada a res.txt
+[2026-04-27 20:46:51] [9921] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:46:51] [9921] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:47:25] [9921] [DEBUG] read_buffer called on fd 3. Read 59 bytes. Errno: 10
+[2026-04-27 20:47:25] [9921] [DEBUG] read content: 'start /home/Documents/temp/sistemas-operativos/tarea1/a.out'
+[2026-04-27 20:47:25] [9921] Comando recibido: 'start /home/Documents/temp/sistemas-operativos/tarea1/a.out'
+[2026-04-27 20:47:25] [9921] Iniciando binario '/home/Documents/temp/sistemas-operativos/tarea1/a.out' en el nuevo PID: 10213
+[2026-04-27 20:47:25] [9921] Proceso añadido exitosamente: IID 4, PID 10213, Path /home/Documents/temp/sistemas-operativos/tarea1/a.out
+[2026-04-27 20:47:25] [9921] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:47:25] [9921] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:47:27] [9921] [DEBUG] read_buffer called on fd 3. Read 2 bytes. Errno: 4
+[2026-04-27 20:47:27] [9921] [DEBUG] read content: 'ps'
+[2026-04-27 20:47:27] [9921] [AVISO] Proceso IID 4 (PID 10213) terminó. Estado actualizado a ZOMBIE.
+[2026-04-27 20:47:27] [9921] Comando recibido: 'ps'
+[2026-04-27 20:47:27] [9921] Información de procesos enviada a res.txt
+[2026-04-27 20:47:27] [9921] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:47:27] [9921] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:47:31] [9921] [DEBUG] read_buffer called on fd 3. Read 2 bytes. Errno: 10
+[2026-04-27 20:47:31] [9921] [DEBUG] read content: 'ps'
+[2026-04-27 20:47:31] [9921] Comando recibido: 'ps'
+[2026-04-27 20:47:31] [9921] Información de procesos enviada a res.txt
+[2026-04-27 20:47:31] [9921] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:47:31] [9921] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:51:03] [9921] [DEBUG] read_buffer called on fd 3. Read 64 bytes. Errno: 10
+[2026-04-27 20:51:03] [9921] [DEBUG] read content: 'start /home/Documents/temp/sistemas-operativos/tarea1/sleep_prog'
+[2026-04-27 20:51:03] [9921] Comando recibido: 'start /home/Documents/temp/sistemas-operativos/tarea1/sleep_prog'
+[2026-04-27 20:51:03] [9921] Iniciando binario '/home/Documents/temp/sistemas-operativos/tarea1/sleep_prog' en el nuevo PID: 10798
+[2026-04-27 20:51:03] [9921] Proceso añadido exitosamente: IID 5, PID 10798, Path /home/Documents/temp/sistemas-operativos/tarea1/sleep_prog
+[2026-04-27 20:51:03] [9921] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:51:03] [9921] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:51:04] [9921] [DEBUG] read_buffer called on fd 3. Read 2 bytes. Errno: 4
+[2026-04-27 20:51:04] [9921] [DEBUG] read content: 'ps'
+[2026-04-27 20:51:04] [9921] [AVISO] Proceso IID 5 (PID 10798) terminó. Estado actualizado a ZOMBIE.
+[2026-04-27 20:51:04] [9921] Comando recibido: 'ps'
+[2026-04-27 20:51:04] [9921] Información de procesos enviada a res.txt
+[2026-04-27 20:51:04] [9921] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:51:04] [9921] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:52:37] [9921] [DEBUG] read_buffer called on fd 3. Read 4 bytes. Errno: 10
+[2026-04-27 20:52:37] [9921] [DEBUG] read content: 'EXIT'
+[2026-04-27 20:52:37] [9921] Comando recibido: 'EXIT'
+[2026-04-27 20:52:37] [9921] Recibido comando EXIT. Saliendo del bucle...
+[2026-04-27 20:52:37] [9921] Eliminando commands.txt
+[2026-04-27 20:57:32] [12457] demonio iniciado correctamente
+[2026-04-27 20:57:32] [12457] Creado FIFO correctamente... Esperando Toadd-CLI
+[2026-04-27 20:57:36] [12457] FIFO abierto para lectura correctamente
+[2026-04-27 20:57:36] [12457] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 2
+[2026-04-27 20:57:36] [12457] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:57:39] [12457] [DEBUG] read_buffer called on fd 3. Read 2 bytes. Errno: 10
+[2026-04-27 20:57:39] [12457] [DEBUG] read content: 'ps'
+[2026-04-27 20:57:39] [12457] Comando recibido: 'ps'
+[2026-04-27 20:57:39] [12457] Información de procesos enviada a res.txt
+[2026-04-27 20:57:39] [12457] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:57:39] [12457] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:57:46] [12457] [DEBUG] read_buffer called on fd 3. Read 64 bytes. Errno: 10
+[2026-04-27 20:57:46] [12457] [DEBUG] read content: 'start /home/Documents/temp/sistemas-operativos/tarea1/sleep_prog'
+[2026-04-27 20:57:46] [12457] Comando recibido: 'start /home/Documents/temp/sistemas-operativos/tarea1/sleep_prog'
+[2026-04-27 20:57:46] [12457] [ERROR] El binario '/home/Documents/temp/sistemas-operativos/tarea1/sleep_prog' no existe o no es ejecutable: No such file or directory
+[2026-04-27 20:57:46] [12457] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 2
+[2026-04-27 20:57:46] [12457] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:57:47] [12457] [DEBUG] read_buffer called on fd 3. Read 2 bytes. Errno: 10
+[2026-04-27 20:57:47] [12457] [DEBUG] read content: 'ps'
+[2026-04-27 20:57:47] [12457] Comando recibido: 'ps'
+[2026-04-27 20:57:47] [12457] Información de procesos enviada a res.txt
+[2026-04-27 20:57:47] [12457] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:57:47] [12457] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:57:57] [12457] [DEBUG] read_buffer called on fd 3. Read 10 bytes. Errno: 10
+[2026-04-27 20:57:57] [12457] [DEBUG] read content: 'start ./hw'
+[2026-04-27 20:57:57] [12457] Comando recibido: 'start ./hw'
+[2026-04-27 20:57:57] [12457] Iniciando binario './hw' en el nuevo PID: 12530
+[2026-04-27 20:57:57] [12457] Proceso añadido exitosamente: IID 2, PID 12530, Path ./hw
+[2026-04-27 20:57:57] [12457] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:57:57] [12457] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:57:58] [12457] [DEBUG] read_buffer called on fd 3. Read 2 bytes. Errno: 4
+[2026-04-27 20:57:58] [12457] [DEBUG] read content: 'ps'
+[2026-04-27 20:57:58] [12457] [AVISO] Proceso IID 2 (PID 12530) terminó. Estado actualizado a ZOMBIE.
+[2026-04-27 20:57:58] [12457] Comando recibido: 'ps'
+[2026-04-27 20:57:58] [12457] Información de procesos enviada a res.txt
+[2026-04-27 20:57:58] [12457] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:57:58] [12457] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:58:05] [12457] [DEBUG] read_buffer called on fd 3. Read 18 bytes. Errno: 10
+[2026-04-27 20:58:05] [12457] [DEBUG] read content: 'start ./sleep_prog'
+[2026-04-27 20:58:05] [12457] Comando recibido: 'start ./sleep_prog'
+[2026-04-27 20:58:05] [12457] Iniciando binario './sleep_prog' en el nuevo PID: 12562
+[2026-04-27 20:58:05] [12457] Proceso añadido exitosamente: IID 3, PID 12562, Path ./sleep_prog
+[2026-04-27 20:58:05] [12457] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:58:05] [12457] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:58:07] [12457] [DEBUG] read_buffer called on fd 3. Read 2 bytes. Errno: 10
+[2026-04-27 20:58:07] [12457] [DEBUG] read content: 'ps'
+[2026-04-27 20:58:07] [12457] Comando recibido: 'ps'
+[2026-04-27 20:58:07] [12457] Información de procesos enviada a res.txt
+[2026-04-27 20:58:07] [12457] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:58:07] [12457] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:58:24] [12457] [DEBUG] read_buffer called on fd 3. Read 6 bytes. Errno: 10
+[2026-04-27 20:58:24] [12457] [DEBUG] read content: 'zombie'
+[2026-04-27 20:58:24] [12457] Comando recibido: 'zombie'
+[2026-04-27 20:58:24] [12457] Información de procesos zombie enviada a res.txt
+[2026-04-27 20:58:24] [12457] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:58:24] [12457] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:58:35] [12457] [DEBUG] read_buffer called on fd 3. Read 6 bytes. Errno: 10
+[2026-04-27 20:58:35] [12457] [DEBUG] read content: 'stop 3'
+[2026-04-27 20:58:35] [12457] Comando recibido: 'stop 3'
+[2026-04-27 20:58:35] [12457] Señal SIGTERM enviada con éxito. Proceso detenido: IID 3, PID 12562
+[2026-04-27 20:58:35] [12457] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:58:35] [12457] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:58:37] [12457] [DEBUG] read_buffer called on fd 3. Read 2 bytes. Errno: 4
+[2026-04-27 20:58:37] [12457] [DEBUG] read content: 'ps'
+[2026-04-27 20:58:37] [12457] [AVISO] Proceso IID 3 (PID 12562) terminó. Estado actualizado a ZOMBIE.
+[2026-04-27 20:58:37] [12457] Comando recibido: 'ps'
+[2026-04-27 20:58:37] [12457] Información de procesos enviada a res.txt
+[2026-04-27 20:58:37] [12457] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:58:37] [12457] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:59:28] [12457] [DEBUG] read_buffer called on fd 3. Read 6 bytes. Errno: 10
+[2026-04-27 20:59:28] [12457] [DEBUG] read content: 'kill 3'
+[2026-04-27 20:59:28] [12457] Comando recibido: 'kill 3'
+[2026-04-27 20:59:28] [12457] [ERROR] No se pudo enviar SIGKILL al IID 3 (PID 12562): No such process
+[2026-04-27 20:59:28] [12457] Proceso IID 3 (PID 12562) eliminado de la tabla tras kill.
+[2026-04-27 20:59:28] [12457] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:59:28] [12457] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:59:30] [12457] [DEBUG] read_buffer called on fd 3. Read 2 bytes. Errno: 10
+[2026-04-27 20:59:30] [12457] [DEBUG] read content: 'ps'
+[2026-04-27 20:59:30] [12457] Comando recibido: 'ps'
+[2026-04-27 20:59:30] [12457] Información de procesos enviada a res.txt
+[2026-04-27 20:59:30] [12457] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:59:30] [12457] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:59:33] [12457] [DEBUG] read_buffer called on fd 3. Read 6 bytes. Errno: 10
+[2026-04-27 20:59:33] [12457] [DEBUG] read content: 'kill 2'
+[2026-04-27 20:59:33] [12457] Comando recibido: 'kill 2'
+[2026-04-27 20:59:33] [12457] [ERROR] No se pudo enviar SIGKILL al IID 2 (PID 12530): No such process
+[2026-04-27 20:59:33] [12457] Proceso IID 2 (PID 12530) eliminado de la tabla tras kill.
+[2026-04-27 20:59:33] [12457] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:59:33] [12457] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:59:35] [12457] [DEBUG] read_buffer called on fd 3. Read 2 bytes. Errno: 10
+[2026-04-27 20:59:35] [12457] [DEBUG] read content: 'ps'
+[2026-04-27 20:59:35] [12457] Comando recibido: 'ps'
+[2026-04-27 20:59:35] [12457] Información de procesos enviada a res.txt
+[2026-04-27 20:59:35] [12457] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 20:59:35] [12457] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 20:59:44] [12457] [DEBUG] read_buffer called on fd 3. Read 4 bytes. Errno: 10
+[2026-04-27 20:59:44] [12457] [DEBUG] read content: 'EXIT'
+[2026-04-27 20:59:44] [12457] Comando recibido: 'EXIT'
+[2026-04-27 20:59:44] [12457] Recibido comando EXIT. Saliendo del bucle...
+[2026-04-27 20:59:44] [12457] Eliminando commands.txt
+[2026-04-27 21:03:46] [13633] demonio iniciado correctamente
+[2026-04-27 21:03:46] [13633] Creado FIFO correctamente... Esperando Toadd-CLI
+[2026-04-27 21:03:53] [13633] FIFO abierto para lectura correctamente
+[2026-04-27 21:03:53] [13633] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 2
+[2026-04-27 21:03:53] [13633] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 21:03:56] [13633] [DEBUG] read_buffer called on fd 3. Read 2 bytes. Errno: 10
+[2026-04-27 21:03:56] [13633] [DEBUG] read content: 'ps'
+[2026-04-27 21:03:56] [13633] Comando recibido: 'ps'
+[2026-04-27 21:03:56] [13633] Información de procesos enviada a res.txt
+[2026-04-27 21:03:56] [13633] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 21:03:56] [13633] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 21:03:58] [13633] [DEBUG] read_buffer called on fd 3. Read 18 bytes. Errno: 10
+[2026-04-27 21:03:58] [13633] [DEBUG] read content: 'start ./sleep_prog'
+[2026-04-27 21:03:58] [13633] Comando recibido: 'start ./sleep_prog'
+[2026-04-27 21:03:58] [13633] Iniciando binario './sleep_prog' en el nuevo PID: 13703
+[2026-04-27 21:03:58] [13633] Proceso añadido exitosamente: IID 2, PID 13703, Path ./sleep_prog
+[2026-04-27 21:03:58] [13633] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 21:03:58] [13633] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 21:04:00] [13633] [DEBUG] read_buffer called on fd 3. Read 2 bytes. Errno: 10
+[2026-04-27 21:04:00] [13633] [DEBUG] read content: 'ps'
+[2026-04-27 21:04:00] [13633] Comando recibido: 'ps'
+[2026-04-27 21:04:00] [13633] Información de procesos enviada a res.txt
+[2026-04-27 21:04:00] [13633] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 21:04:00] [13633] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 21:04:11] [13633] [DEBUG] read_buffer called on fd 3. Read 6 bytes. Errno: 10
+[2026-04-27 21:04:11] [13633] [DEBUG] read content: 'stop 2'
+[2026-04-27 21:04:11] [13633] Comando recibido: 'stop 2'
+[2026-04-27 21:04:11] [13633] Señal SIGTERM enviada con éxito. Proceso detenido: IID 2, PID 13703
+[2026-04-27 21:04:11] [13633] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 21:04:11] [13633] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 21:04:13] [13633] [DEBUG] read_buffer called on fd 3. Read 2 bytes. Errno: 4
+[2026-04-27 21:04:13] [13633] [DEBUG] read content: 'ps'
+[2026-04-27 21:04:13] [13633] Comando recibido: 'ps'
+[2026-04-27 21:04:13] [13633] Información de procesos enviada a res.txt
+[2026-04-27 21:04:13] [13633] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 21:04:13] [13633] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 21:04:18] [13633] [DEBUG] read_buffer called on fd 3. Read 6 bytes. Errno: 10
+[2026-04-27 21:04:18] [13633] [DEBUG] read content: 'kill 2'
+[2026-04-27 21:04:18] [13633] Comando recibido: 'kill 2'
+[2026-04-27 21:04:18] [13633] [ERROR] No se pudo enviar SIGKILL al IID 2 (PID 13703): No such process
+[2026-04-27 21:04:18] [13633] Proceso IID 2 (PID 13703) eliminado de la tabla tras kill.
+[2026-04-27 21:04:18] [13633] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 21:04:18] [13633] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 21:04:19] [13633] [DEBUG] read_buffer called on fd 3. Read 2 bytes. Errno: 10
+[2026-04-27 21:04:19] [13633] [DEBUG] read content: 'ps'
+[2026-04-27 21:04:19] [13633] Comando recibido: 'ps'
+[2026-04-27 21:04:19] [13633] Información de procesos enviada a res.txt
+[2026-04-27 21:04:19] [13633] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 21:04:19] [13633] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 21:04:27] [13633] [DEBUG] read_buffer called on fd 3. Read 10 bytes. Errno: 10
+[2026-04-27 21:04:27] [13633] [DEBUG] read content: 'start ./hw'
+[2026-04-27 21:04:27] [13633] Comando recibido: 'start ./hw'
+[2026-04-27 21:04:27] [13633] Iniciando binario './hw' en el nuevo PID: 13895
+[2026-04-27 21:04:27] [13633] Proceso añadido exitosamente: IID 3, PID 13895, Path ./hw
+[2026-04-27 21:04:27] [13633] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 21:04:27] [13633] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 21:04:28] [13633] [DEBUG] read_buffer called on fd 3. Read 2 bytes. Errno: 4
+[2026-04-27 21:04:28] [13633] [DEBUG] read content: 'ps'
+[2026-04-27 21:04:28] [13633] [AVISO] Proceso IID 3 (PID 13895) terminó. Estado actualizado a ZOMBIE.
+[2026-04-27 21:04:28] [13633] Comando recibido: 'ps'
+[2026-04-27 21:04:28] [13633] Información de procesos enviada a res.txt
+[2026-04-27 21:04:28] [13633] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 21:04:28] [13633] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 21:04:35] [13633] [DEBUG] read_buffer called on fd 3. Read 6 bytes. Errno: 10
+[2026-04-27 21:04:35] [13633] [DEBUG] read content: 'stop 3'
+[2026-04-27 21:04:35] [13633] Comando recibido: 'stop 3'
+[2026-04-27 21:04:35] [13633] [ERROR] No se pudo enviar SIGTERM al IID 3 (PID 13895): No such process
+[2026-04-27 21:04:35] [13633] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 3
+[2026-04-27 21:04:35] [13633] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 21:04:37] [13633] [DEBUG] read_buffer called on fd 3. Read 2 bytes. Errno: 10
+[2026-04-27 21:04:37] [13633] [DEBUG] read content: 'ps'
+[2026-04-27 21:04:37] [13633] Comando recibido: 'ps'
+[2026-04-27 21:04:37] [13633] Información de procesos enviada a res.txt
+[2026-04-27 21:04:37] [13633] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 21:04:37] [13633] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 21:10:39] [13633] [DEBUG] read_buffer called on fd 3. Read 4 bytes. Errno: 10
+[2026-04-27 21:10:39] [13633] [DEBUG] read content: 'exit'
+[2026-04-27 21:10:39] [13633] Comando recibido: 'exit'
+[2026-04-27 21:10:39] [13633] [AVISO] Comando desconocido ignorado.
+[2026-04-27 21:10:39] [13633] [DEBUG] read_buffer called on fd 3. Read 0 bytes. Errno: 10
+[2026-04-27 21:10:39] [13633] Proceso escritor se cerró. Reabriendo pipe en modo lectura...
+[2026-04-27 21:10:46] [13633] [DEBUG] read_buffer called on fd 3. Read 4 bytes. Errno: 10
+[2026-04-27 21:10:46] [13633] [DEBUG] read content: 'EXIT'
+[2026-04-27 21:10:46] [13633] Comando recibido: 'EXIT'
+[2026-04-27 21:10:46] [13633] Recibido comando EXIT. Saliendo del bucle...
+[2026-04-27 21:10:46] [13633] Eliminando commands.txt
