@@ -266,7 +266,6 @@ int alloc(Block* head, int process_id, int size, int algorithm){
 		temp->is_free = 0;
 		temp->process_id = process_id;
 		if(prevSize-size>0){
-			printf("entre aquiiii 2 prevSize-size=%d \n \n", prevSize-size);
 			Block* newBlock = createBlock(-1, prevSize-size);
 			newBlock->next = temp->next;
 			newBlock->prev = temp;
@@ -287,6 +286,7 @@ int coalescence(Block* head){
 		int pos = 1;
 		while (temp != NULL) {
 			if((temp->is_free ==1) && (temp->next != NULL) && (temp->next->is_free == 1)){
+				temp->process_id = -1;
 				temp->size +=temp->next->size;
 				deleteAtPosition(&head, pos+1);
 			}
@@ -302,9 +302,23 @@ int freeMem(Block* head, int process_id){
 	if(temp==NULL)
 		return -1;
 	temp->is_free = 1;
+	temp->process_id = -1;
 	coalescence(head);
+	return 1;	
+}
+
+int compact(Block* head, int totalMemory){
+	Block* newHead = NULL;
+	insertAtEnd(&newHead, -1, totalMemory);
+	Block* temp = head;
+    while (temp != NULL) {
+        if(temp->is_free == 0){
+			alloc(newHead, temp->process_id,  temp->size, 1);
+		}
+        temp = temp->next;
+    }
+	*head = *newHead;
 	return 1;
-	
 }
 
 
@@ -330,26 +344,33 @@ int main(){
 	insertAtEnd(&head, 5, 50);
 	insertAtEnd(&head, 6, 60);
 	
-	head->is_free = 1;
-	head->next->is_free = 1;
-	head->next->next->is_free = 1;
-	head->next->next->next->is_free = 1;
-	head->next->next->next->next->is_free = 1;
-	head->next->next->next->next->next->is_free = 1;
+	head->is_free = 0;
+	head->next->is_free = 0;
+	head->next->next->is_free = 0;
+	head->next->next->next->is_free = 0;
+	head->next->next->next->next->is_free = 0;
+	head->next->next->next->next->next->is_free = 0;
 	
 	//alloc(head, 77, 35, 1);
 	//alloc(head, 77, 35, 2);
 	//alloc(head, 77, 35, 3);
 	//printf("%d \n\n", alloc(head, 77, 35, 1));
 	
-	printListForward(head);
-	Block* PI = findByPI(head, 2);
+	//printListForward(head);
+	//Block* PI = findByPI(head, 2);
 	//printf("pid %d\n size %d \n", PI->process_id, PI->size);
 	//printBlock(PI);
+	
+	freeMem(head, 3);
+	freeMem(head, 4);
+	freeMem(head, 1);
 
-	//printListForward(head);
+	printListForward(head);
 	//coalescence(head);
 	//printListForward(head);
+	
+	compact(head, 660);
+	printListForward(head); 
 	
 	return 0;
 }
